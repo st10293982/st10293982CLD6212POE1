@@ -1,0 +1,138 @@
+﻿<style>
+    .gallery-container {
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #ffffff;
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        border-top: 1px solid black;
+    }
+
+    .gallery-item {
+        padding: 20px;
+        text-align: center;
+        border-bottom: 1px solid black;
+        transition: transform 0.2s;
+    }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: cover;
+            border-bottom: 1px solid black;
+        }
+
+        .gallery-item .price {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+</style>
+<div class="gallery-container">
+    <div class="gallery-grid">
+        <div class="gallery-item">
+            <img src="~/images/small-706652tjw952204_x.jpeg" />
+            <div class="price">$29.99</div>
+        </div>
+        <div class="gallery-item">
+            <img src="~/images/small-793766tqw722632_x.jpeg" />
+            <div class="price">$49.99</div>
+        </div>
+        <div class="gallery-item">
+            <img src="~/images/small-808909tro311485_x.jpeg" />
+            <div class="price">$39.99</div>
+        </div>
+        <div class="gallery-item">
+            <img src="~/images/small-808909tro311000_x.jpeg" />
+            <div class="price">$19.99</div>
+        </div>
+        <div class="gallery-item">
+            <img src="~/images/small-808895trp103420_x.jpeg" />
+            <div class="price">$59.99</div>
+        </div>
+        <div class="gallery-item">
+            <img src="~/images/small-808816tnvi71000_x.jpeg" />
+            <div class="price">$69.99</div>
+        </div>
+        <div class="gallery-item">
+            <img src="~/images/small-805094trw903969_x.jpeg" />
+            <div class="price">$69.99</div>
+        </div>
+        <div class="gallery-item">
+            <img src="~/images/small-793766tqw722632_x.jpeg" />
+            <div class="price">$69.99</div>
+        </div>
+        <div class="gallery-item">
+            <img src="~/images/small-793766tqw752664_x.jpeg" />
+            <div class="price">$69.99</div>
+        </div>
+        <div class="gallery-item">
+            <img src="~/images/small-793766tqw711776_x.jpeg" />
+            <div class="price">$69.99</div>
+        </div>
+        <div class="gallery-item">
+            <img src="~/images/small-787349trvl89374_y.jpeg" />
+            <div class="price">$69.99</div>
+        </div>
+        <div class="gallery-item">
+            <img src="~/images/small-787349trvc91300_y.jpeg" />
+            <div class="price">$69.99</div>
+        </div>
+        <div class="gallery-item">
+            <img src="~/images/small-764235trvc23521_y.jpeg" />
+            <div class="price">$69.99</div>
+        </div>
+        <div class="gallery-item">
+            <img src="~/images/small-764235tqvr99016_y.jpeg" />
+            <div class="price">$69.99</div>
+        </div>
+        <div class="gallery-item">
+            <img src="~/images/small-764235tqvr91083_y.jpeg" />
+            <div class="price">$69.99</div>
+        </div>
+        <div class="gallery-item">
+            <img src="~/images/small-739784tqvq81073_y.jpeg" />
+            <div class="price">$69.99</div>
+        </div>
+        <div class="gallery-item">
+            <img src="~/images/small-739784tqvq83004_y.jpeg" />
+            <div class="price">$69.99</div>
+        </div>
+       
+    </div>
+</div>
+@* <div class="gallery-container">
+    <div class="gallery-grid">
+        @foreach (var shop in Model)
+        {
+            <div class="gallery-item">
+                <img src="@shop.ImageURL" alt="@shop.Name" />
+                <div class="price">$@shop.Price</div>
+            </div>
+        }
+    </div>
+</div> *@
+<div class="gallery-container">
+    <div class="gallery-grid">
+        @foreach (var shop in Model)
+        {
+            <div class="gallery-item">
+                <a href="@Url.Action("Index", "Orders", new { productId = shop.Id })">
+                    <img src="@shop.ImageURL" alt="@shop.Name" />
+                    <div class="price">$@shop.Price</div>
+                </a>
+            </div>
+        }
+    </div>
+</div>

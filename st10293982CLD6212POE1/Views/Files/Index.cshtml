@@ -1,0 +1,194 @@
+﻿@model List<st10293982CLD6212POE1.Models.FileModel>
+
+@* <h1>Files</h1>
+
+<!-- Display any messages -->
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">
+        @TempData["Message"]
+    </div>
+}
+
+<!-- Upload form -->
+<form asp-action="Upload" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="file">Choose a file to upload:</label>
+        <input type="file" name="file" class="form-control" />
+        <button type="submit" class="btn btn-primary mt-2">Upload</button>
+    </div>
+</form>
+
+<!-- Display uploaded files -->
+@if (Model != null && Model.Count > 0)
+{
+    <ul>
+        @foreach (var file in Model)
+        {
+            <li>
+                @file.Name -
+                Size: @file.DisplaySize -
+                Last Modified: @file.LastModified?.ToString("g")
+                - <a asp-action="DownloadFile" asp-route-fileName="@file.Name">Download</a>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No files found or model is null.</p>
+} *@
+
+@{
+    ViewData["Title"] = "Files";
+}
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        font-size: 36px;
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .alert {
+        margin-bottom: 20px;
+        border-radius: 5px;
+        padding: 15px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #d9edf7;
+        border: 1px solid #bce8f1;
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+            color: #34495e;
+        }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+
+    .btn-primary {
+        background-color: #fff;
+        color: #000;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        border: 2px solid transparent;
+        transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        display: inline-block;
+        font-size: 16px;
+    }
+
+        .btn-primary:hover {
+            background-color: #000;
+            border-color: #000;
+        }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+        ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            ul li:last-child {
+                border-bottom: none;
+            }
+
+            ul li a {
+                color: #fff;
+                text-decoration: none;
+                font-weight: bold;
+                transition: color 0.3s;
+            }
+
+                ul li a:hover {
+                    color: #fff;
+                }
+
+    p {
+        text-align: center;
+        color: #7f8c8d;
+        font-size: 16px;
+    }
+</style>
+
+<div class="container">
+    <h1>Files</h1>
+
+    <!-- Display any messages -->
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-info">
+            @TempData["Message"]
+        </div>
+    }
+
+    <!-- Upload form -->
+    <form asp-action="Upload" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="file">Choose a file to upload:</label>
+            <input type="file" name="file" class="form-control" />
+            <button type="submit" class="btn btn-primary mt-2">Upload</button>
+        </div>
+    </form>
+
+    <!-- Display uploaded files -->
+    @if (Model != null && Model.Count > 0)
+    {
+        <ul>
+            @foreach (var file in Model)
+            {
+                <li>
+                    <span>@file.Name</span>
+                    <span>
+                        Size: @file.DisplaySize |
+                        Last Modified: @file.LastModified?.ToString("g") |
+                        <a asp-action="DownloadFile" asp-route-fileName="@file.Name">Download</a>
+                    </span>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No files found or model is null.</p>
+    }
+</div>

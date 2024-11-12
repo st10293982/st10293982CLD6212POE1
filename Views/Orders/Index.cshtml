@@ -1,0 +1,33 @@
+﻿@model IEnumerable<st10293982CLD6212POE1.Models.Order>
+
+@{
+    ViewData["Title"] = "All Orders";
+}
+
+<div class="container">
+    <h1>All Orders</h1>
+    <a href="@Url.Action("Register", "Orders")" class="btn btn-primary">Add New Order</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Customer ID</th>
+                <th>Product ID</th>
+                <th>Location</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.Order_Ids</td>
+                    <td>@order.Customer_Ids</td>
+                    <td>@order.Product_Ids</td>
+                    <td>@order.Order_Locations</td>
+                    <td>@order.Order_Dates</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

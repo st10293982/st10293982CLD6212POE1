@@ -1,0 +1,112 @@
+﻿@* @{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+   
+<img src="~/images/large-hp_dk_3xl-sneaker-campaign_2_-2600x1300px-_2x1.jpeg" />
+    <div class="c-homepagetile__overlay">
+
+        <h4 class="c-homepagetile__title" data-ref="homeCTATitle">
+            <p><span style="color:#000000;">RODEO BAG</span></p>
+        </h4>
+
+        <div class="c-homepagetile__btns">
+            <a class="c-button c-homepagetile__btn" href="https://www.balenciaga.com/en-nl/women/bags/rodeo"><span>SHOP NOW</span></a>
+        </div>
+    </div>
+<img src="~/images/large-hp_dk_sneakers_campaign_02_2600x1300_2x1.jpeg" />
+        </div>
+
+ *@
+
+@{
+    ViewData["Title"] = "Home Page";
+    var isLoggedIn = User.Identity.IsAuthenticated;
+}
+
+<style>
+    
+    .full-width-container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+        .full-width-container img {
+            width: 100%;
+            display: block;
+        }
+
+    .c-homepagetile__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+
+    .text-center {
+        position: relative;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .c-button {
+        background-color: white;
+        color: black;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        border: 1px solid transparent;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    }
+
+        .c-button:hover {
+            background-color: black;
+            color: white;
+            border-color: white;
+        }
+</style>
+<!-- Navbar with login/logout functionality -->
+<div class="navbar">
+    <div>
+        <a href="@Url.Action("Index", "Home")">Home</a>
+        <a href="@Url.Action("Index", "Shops")">Shop</a>
+    </div>
+
+    <div class="login-section">
+        @if (isLoggedIn)
+        {
+            <span>Welcome, @User.Identity.Name</span>
+            <a href="@Url.Action("Logout", "Account")">Logout</a>
+        }
+        else
+        {
+            <a href="@Url.Action("Login", "Account")">Login</a>
+            <a href="@Url.Action("Register", "Account")">Register</a>
+        }
+    </div>
+</div>
+
+<div class="full-width-container text-center">
+    <img src="~/images/large-hp_dk_3xl-sneaker-campaign_2_-2600x1300px-_2x1.jpeg" />
+    <div class="c-homepagetile__overlay">
+        <h4 class="c-homepagetile__title" data-ref="homeCTATitle">
+            <p><span style="color:#000000;">ABC Retail</span></p>
+        </h4>
+        <div class="c-homepagetile__btns">
+            <a class="c-button c-homepagetile__btn" href="@Url.Action("Index", "Shops")"><span>SHOP NOW</span></a>
+        </div>
+    </div>
+    <img src="~/images/large-hp_dk_sneakers_campaign_02_2600x1300_2x1.jpeg" />
+</div>
+

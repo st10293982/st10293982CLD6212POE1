@@ -1,0 +1,48 @@
+﻿@model st10293982CLD6212POE1.Models.Cart
+
+@{
+    ViewData["Title"] = "Shopping Cart";
+}
+
+<h1>Your Cart</h1>
+
+@if (Model.Items.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>@item.ProductName</td>
+                    <td>@item.Price.ToString("C")</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Total.ToString("C")</td>
+                    <td>
+                        <form method="post" asp-action="RemoveFromCart" asp-route-productId="@item.ProductId">
+                            <button type="submit" class="btn btn-danger">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div>
+        <strong>Total Price: @Model.TotalPrice.ToString("C")</strong>
+    </div>
+}
+else
+{
+    <p>Your cart is empty.</p>
+}
+
+<a href="@Url.Action("Index", "Products")" class="btn btn-primary">Continue Shopping</a>

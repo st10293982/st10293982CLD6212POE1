@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1ejQVxkpN0aNlQa6ZHmZSQAAAAACAAAAAAAQZgAAAAEAACAAAAANFRZqXjRVx4fT+l59neiW7lnxieMQtAfQaOSJHl4HCQAAAAAOgAAAAAIAACAAAACW3irCrVrdN60KvwS7+pM1VInNNTqdtstFilrqU0gDqYAAAAAIQBAPFLBiF/TqVp0ntsVwpF6uIH1kmdgkTd1Hgo9x/ouuZRDEyOrV92JVtgM65UQfBNhG+GFQuLkFingIkh2NI5wrkIFU2toY+lYKnGL9b34lgxk2YgnW//ZAkyWKDtJrlXkaLRI8y2zd9OmbA6sb0QWANRkzP9fvTpb+24n38EAAAAAaWIdRtT3Mqx4GaUoRoOg1dFSfY/rSuHfe/RCRQATSOvumriC9De9lGbD6ans0mP1gL0XQVs9QNn4tQJ8rHyRc</EncryptedPassword>
+    <History>False|2024-11-12T16:57:28.6405980Z;False|2024-11-12T18:52:20.8772123+02:00;False|2024-11-12T18:52:14.5800316+02:00;False|2024-11-12T16:14:37.9564909+02:00;False|2024-11-12T16:13:45.9428477+02:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="AzureStorage">
+      <Value>DefaultEndpointsProtocol=https%3bAccountName=st10293982cldv6212poe1%3bAccountKey=A3MeUPq3OcrtBISegaksl8S8StGjWJ8yYFcNs6mmGr3alE3miS3JUcNMA7gAWJpAr1Z5krsvVvH1+ASthj+lRg==%3bEndpointSuffix=core.windows.net</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>DefaultEndpointsProtocol=https%3bAccountName=st10293982cldv6212poe1%3bAccountKey=A3MeUPq3OcrtBISegaksl8S8StGjWJ8yYFcNs6mmGr3alE3miS3JUcNMA7gAWJpAr1Z5krsvVvH1+ASthj+lRg==%3bEndpointSuffix=core.windows.net</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
